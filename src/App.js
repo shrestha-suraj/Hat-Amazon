@@ -7,7 +7,7 @@ import ShopPage from "./pages/shoppage/shoppage.component.jsx"
 import HatsPage from "./pages/hatspage/hatspage.component.jsx"
 import Header from "./components/header/header.component.jsx"
 import SignInAndSignUpPage from './pages/sign-in-and-signup/sign-in-and-signup.component.jsx'
-
+import TestPage from './pages/testpage/testpage.component.jsx'
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
         <Route exact path="/shop" component={ShopPage}/>
         <Route exact path="/signin" component={SignInAndSignUpPage}/>
         <Route exact path="/shop/hats" component={HatsPage}/>
+        <Route exact path="/test" component={TestPage}/>
         
       </Switch>
     </div>

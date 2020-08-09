@@ -19,6 +19,9 @@ const Header=(props)=>{
                 <Link to="/signin" className="option">
                     SIGN IN
                 </Link>
+                <Link to="/test" className="option">
+                    TEST
+                </Link>
             </div>
         </div>
     )
