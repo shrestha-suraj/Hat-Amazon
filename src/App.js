@@ -11,30 +11,28 @@ import TestPage from "./pages/testpage/testpage.component.jsx";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils.js";
 
+import {connect} from 'react-redux'
+import {setCurrentuser} from './redux/user/user.actions'
+
+
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      currentUser: null,
-    };
-  }
-
   unsuscribeFromAuth = null;
-
   componentDidMount() {
+
+    const {setCurrentUser}=this.props
+
     this.unsuscribeFromAuth = auth.onAuthStateChanged(async (user) => {
       if (user) {
         const userRef = await createUserProfileDocument(user);
         userRef.onSnapshot((snapShot) => {
-          this.setState({
-            currentUser: {
+          
+          setCurrentUser({
               id: snapShot.id,
               ...snapShot.data()
-            }
-          },()=>{console.log(this.state)});
+            })
         });
       }else{
-        this.setState({currentUser:user})
+        setCurrentUser(user)
       }
     });
   }
@@ -46,7 +44,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header currentUser={this.state.currentUser} />
+        <Header/>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={ShopPage} />
@@ -59,4 +57,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const matchDispatchToProps=dispatch=>({
+  //Here we are inserting the action object in dispatch
+  setCurrentUser:user=>dispatch(setCurrentuser(user))
+})
+
+
+export default connect(null,matchDispatchToProps)(App);
