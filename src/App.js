@@ -7,6 +7,8 @@ import ShopPage from "./pages/shoppage/shoppage.component.jsx";
 import HatsPage from "./pages/hatspage/hatspage.component.jsx";
 import Header from "./components/header/header.component.jsx";
 import SignInAndSignUpPage from "./pages/sign-in-and-signup/sign-in-and-signup.component.jsx";
+import CheckoutPage from './pages/checkoutpage/checkoutpage.component.jsx';
+
 import TestPage from "./pages/testpage/testpage.component.jsx";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils.js";
@@ -51,6 +53,7 @@ class App extends React.Component {
           <Route exact path="/signin" 
             render={()=>this.props.currentUser?(<Redirect to='/'/>):(<SignInAndSignUpPage/>)} />
           <Route exact path="/shop/hats" component={HatsPage} />
+          <Route excat path="/checkout" component={CheckoutPage}/>
           <Route exact path="/test" component={TestPage} />
         </Switch>
       </div>
