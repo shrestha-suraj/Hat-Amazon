@@ -10,3 +10,17 @@ export const addItem=(item)=>{
         payload:item
     }
 }
+
+export const deleteItem=(id)=>{
+    return {
+        type:'DELETE_ITEM',
+        payload:id
+    }
+}
+
+export const decreaseItem=(item)=>{
+    return{
+        type:'DECREASE_ITEM',
+        payload:item
+    }
+}

@@ -1,4 +1,4 @@
-import {addItemToCart} from './cart.util'
+import {addItemToCart,deleteItemFromCart,decreaseItemFromCart} from './cart.util'
 
 const INITIAL_STATE={
     cartItems:[],
@@ -16,6 +16,16 @@ const cartReducer=(state=INITIAL_STATE,action)=>{
             return{
                 ...state,
                 hidden:!state.hidden
+            }
+        case 'DELETE_ITEM':
+            return{
+                ...state,
+                cartItems:deleteItemFromCart(state.cartItems,action.payload)
+            }
+        case 'DECREASE_ITEM':
+            return {
+                ...state,
+                cartItems:decreaseItemFromCart(state.cartItems,action.payload)
             }
         default: return state;
     }
