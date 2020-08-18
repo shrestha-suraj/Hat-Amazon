@@ -7,9 +7,14 @@ import {connect} from 'react-redux'
 const CollectionsOverview=({collections})=>{
     return(
         <div className="collections-overview">
-             {collections.map(({ id, ...otherCollectionProps }) => (
-          <CollectionPreview key={id} {...otherCollectionProps}/>
-        ))}
+
+            {Object.keys(collections).map(key=>{
+                console.log(key)
+                const {id,...otherCollectionProps}=collections[key]
+                return (
+                    <CollectionPreview key={id} {...otherCollectionProps}/>
+                )
+            })}
         </div>
     )
 }
