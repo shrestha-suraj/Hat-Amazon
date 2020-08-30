@@ -11,7 +11,7 @@ const CartDropDown=({cartItems,history,toggleCart})=>{
     return(
         <div className="cart-drop-down">
             <div className="cart-items">
-                {cartItems.length?cartItems.map(item=><CartItem id={item.id} item={item}/>):
+                {cartItems.length?cartItems.map(item=><CartItem key={item.id} item={item}/>):
                 <span className="empty-message">Your cart is empty</span>
                 }
             </div>
