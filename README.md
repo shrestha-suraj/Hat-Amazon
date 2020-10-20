@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Web Application Demo
 
-<img src="./src/assets/demo.gif"/>
+<img src="./src/assets/demo.gif" style="border:solid 1px"/>
 
 ## Available Scripts
 
